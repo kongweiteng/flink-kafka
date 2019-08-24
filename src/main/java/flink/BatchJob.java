@@ -23,7 +23,6 @@ import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.tuple.Tuple1;
 import org.apache.flink.api.java.tuple.Tuple3;
-import org.apache.flink.shaded.curator.org.apache.curator.shaded.com.google.common.collect.Table;
 import org.apache.flink.types.Row;
 
 import java.util.ArrayList;
