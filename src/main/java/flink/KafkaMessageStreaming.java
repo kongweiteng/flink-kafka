@@ -31,8 +31,8 @@ public class KafkaMessageStreaming {
 
         //    args[0] = "test-0921";  //传入的是kafka中的topic
         FlinkKafkaConsumer09<String> consumer =
-                new FlinkKafkaConsumer09<>("zhisheng", new SimpleStringSchema(), props);
-        consumer.assignTimestampsAndWatermarks(new MessageWaterEmitter());
+                new FlinkKafkaConsumer09<>("iot", new SimpleStringSchema(), props);
+//        consumer.assignTimestampsAndWatermarks(new MessageWaterEmitter());
 
         DataStream<Tuple2<String, Long>> keyedStream = env
                 .addSource(consumer)
