@@ -9,7 +9,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 import org.apache.flink.util.Collector;
 
@@ -30,9 +30,9 @@ public class KafkaMessageStreaming {
         props.setProperty("group.id", "flink-group");
 
         //    args[0] = "test-0921";  //传入的是kafka中的topic
-        FlinkKafkaConsumer010<String> consumer =
-                new FlinkKafkaConsumer010<>("zhisheng", new SimpleStringSchema(), props);
-//        consumer.assignTimestampsAndWatermarks(new MessageWaterEmitter());
+        FlinkKafkaConsumer09<String> consumer =
+                new FlinkKafkaConsumer09<>("zhisheng", new SimpleStringSchema(), props);
+        consumer.assignTimestampsAndWatermarks(new MessageWaterEmitter());
 
         DataStream<Tuple2<String, Long>> keyedStream = env
                 .addSource(consumer)
