@@ -19,7 +19,6 @@ public class KafkaMessageStreaming {
 
     public static void main(String[] args) throws Exception {
 
-
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 非常关键，一定要设置启动检查点！！
