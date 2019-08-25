@@ -19,6 +19,7 @@ public class KafkaMessageStreaming {
 
     public static void main(String[] args) throws Exception {
 
+
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 非常关键，一定要设置启动检查点！！
@@ -26,8 +27,8 @@ public class KafkaMessageStreaming {
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "127.0.0.1:9092");
-        props.setProperty("group.id", "flink-group");
+        props.setProperty("bootstrap.servers", PropertUtil.getPropertValue("bootstrap.servers"));
+        props.setProperty("group.id", PropertUtil.getPropertValue("group.id"));
 
         //    args[0] = "test-0921";  //传入的是kafka中的topic
         FlinkKafkaConsumer09<String> consumer =
