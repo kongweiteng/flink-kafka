@@ -1,5 +1,6 @@
-package flink;
+package flink.redis;
 
+import flink.PropertUtil;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
