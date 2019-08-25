@@ -2,6 +2,7 @@ package flink;
 
 
 
+import flink.redis.RedisUtil;
 import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -19,7 +20,6 @@ import java.util.Properties;
 public class KafkaMessageStreaming {
 
     public static void main(String[] args) throws Exception {
-
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 非常关键，一定要设置启动检查点！！
         env.enableCheckpointing(5000);

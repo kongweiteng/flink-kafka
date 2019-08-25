@@ -59,7 +59,8 @@ public class RedisConfig {
         redisConfig.setHostName(PropertUtil.getPropertValue("redis.host"));
         redisConfig.setPassword(RedisPassword.of(PropertUtil.getPropertValue("redis.auth")));
         redisConfig.setPort(Integer.parseInt(PropertUtil.getPropertValue("redis.port")));
-        redisConfig.setDatabase(1);
+        //暂时不指定database
+//        redisConfig.setDatabase(1);
 
         return new JedisConnectionFactory(redisConfig,clientConfig);
     }
